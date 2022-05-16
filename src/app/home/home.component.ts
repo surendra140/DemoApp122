@@ -41,9 +41,10 @@ export class HomeComponent implements OnInit {
     }
   ]
 
-  bookArray:any=[];
+ 
   itemsCart:any =[]; 
 
+  //add to wishlist
   addCart(prod:any){
       
        // this.bookArray.push(prod);
@@ -56,21 +57,39 @@ export class HomeComponent implements OnInit {
           localStorage.setItem('localCart', JSON.stringify(storeDataGet));
         }
         else{
-          let index:number = 1;
-          if(index == 1){
+          let index:number = -1;
+          if(index == -1){
             this.itemsCart.push(prod);
             localStorage.setItem('localCart',JSON.stringify(this.itemsCart));
           }
           else{
             localStorage.setItem('localCart',JSON.stringify(this.itemsCart));
           }
-        }
-        
-     
+        }   
   }
 
-  public data = this.bookArray;
-
+  completeCart:any = [];
+  //add to completelist
+   addComplete(prod:any){
+    
+     console.log(prod);
+        let cartDataNull = localStorage.getItem('localList');
+        if(cartDataNull == null){
+          let storeDataGet:any = [];
+          storeDataGet.push(prod);
+          localStorage.setItem('localList', JSON.stringify(storeDataGet));
+        }
+        else{
+          let index:number = localStorage.length
+          if(index == 1){
+            this.completeCart.push(prod);
+            localStorage.setItem('localList',JSON.stringify(this.completeCart));
+          }
+          else{
+            localStorage.setItem('localList',JSON.stringify(this.completeCart));
+          }
+        }   
+   }
   
 
 }

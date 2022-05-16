@@ -7,7 +7,6 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class WishlistComponent implements OnInit {
 
-  @Input() public parentData:any;
 
   constructor() { }
 
