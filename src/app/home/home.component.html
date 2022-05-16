@@ -1,0 +1,15 @@
+<p>home works!</p>
+<section >
+   <div class="row">
+       <div class="col-md-3" *ngFor="let prod of productArray ">
+            <img src="{{prod.img}}" alt="">
+            <h3>{{prod.amt}}</h3>
+            <h3>{{prod.qnt}}</h3>
+        
+            <button type="button" (click)="addCart(prod)">Add to Cart</button>
+       </div>
+   </div>
+
+</section>
+
+<app-wishlist [parentData]="data" ></app-wishlist>
